@@ -1,0 +1,16 @@
+$page-header-color:#666;
+.page-header {
+    background-color: #fff;
+    .header-text {
+        font-size: 25px;
+        margin:0.75rem 0rem;
+        color:$page-header-color;
+    }
+    .breadcrumb {
+        font-size: 10px;
+        float: right;
+        margin: 0.75rem 0rem;
+        background-color: #fff;
+        color:$page-header-color;
+    }
+}

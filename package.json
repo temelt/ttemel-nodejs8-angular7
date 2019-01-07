@@ -1,0 +1,48 @@
+{
+  "name": "ttemel-node8-angular6",
+  "version": "1.0.0",
+  "description": "ttemel-node8-angular6  Server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Taner TEMEL",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^2.6.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "bunyan": "^1.8.12",
+    "compression": "^1.7.2",
+    "copy": "^0.3.2",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-validation": "^1.0.2",
+    "express-validator": "^5.2.0",
+    "file-stream-rotator": "^0.2.1",
+    "fs-extra": "^6.0.1",
+    "helmet": "^3.12.1",
+    "joi": "^13.3.0",
+    "jwt-simple": "^0.5.1",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.2",
+    "moment-msdate": "^2.0.1",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.17.5",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "pg": "^7.7.1",
+    "pg-hstore": "^2.3.2",
+    "randomstring": "^1.1.5",
+    "request": "^2.87.0",
+    "sequelize": "^4.37.10",
+    "uniqid": "^5.0.2"
+  },
+  "engines": {
+    "node": ">=8.11.2"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.5"
+  }
+}
