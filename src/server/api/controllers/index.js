@@ -1,7 +1,7 @@
-const author = require('./author');
-const book = require('./book');
+const authorController = require('./authorController');
+const bookController = require('./bookController');
 
 module.exports = {
-  book,
-  author
+  bookController,
+  authorController
 };

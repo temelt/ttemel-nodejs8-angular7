@@ -15,7 +15,7 @@ var sequelize = new Sequelize(
 
 var dbFiles = {
     Book: './book.js',
-    Author: './Author.js'
+    Author: './author.js'
 }
 
 Object.keys(dbFiles).forEach(function (key) {

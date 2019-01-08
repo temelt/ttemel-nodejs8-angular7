@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     isbn: { field: "isbn", type: DataTypes.STRING },
     publishDate: { field: "publish_date", type: DataTypes.DATE },
     author_id: { field: "author_id", type: DataTypes.INTEGER },
-  }, {});
+  }, {tableName:"book"});
 
   Book.associate = function (models) {
     Book.belongsTo(models.Author, {
