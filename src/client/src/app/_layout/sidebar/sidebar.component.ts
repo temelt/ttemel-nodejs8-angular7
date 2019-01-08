@@ -28,7 +28,7 @@ export class SidebarComponent {
                 this.toggleSidebar();
             }
         });
-        this.showMenu='loan';
+        this.showMenu='dashboard';
     }
 
     eventCalled() {

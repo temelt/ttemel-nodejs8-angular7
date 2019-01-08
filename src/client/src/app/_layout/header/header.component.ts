@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { UserModel} from './../../shared/models';
-import { AuthenticationService } from '../../core/authentication/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -15,13 +14,12 @@ export class HeaderComponent implements OnInit {
   currentUser: UserModel;
   isCollapsed = false;
 
-  constructor( private translate: TranslateService, public router: Router,private authService:AuthenticationService) {
+  constructor( private translate: TranslateService, public router: Router) {
 
-    this.currentUser = authService.getloggedInUser()
-    this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de', 'zh-CHS']);
+    this.translate.addLangs(['en', 'tr', 'ur', 'es', 'it', 'fa', 'de', 'zh-CHS']);
     this.translate.setDefaultLang('en');
     const browserLang = this.translate.getBrowserLang();
-    this.translate.use(browserLang.match(/en|fr|ur|es|it|fa|de|zh-CHS/) ? browserLang : 'en');
+    this.translate.use(browserLang.match(/en|tr|ur|es|it|fa|de|zh-CHS/) ? browserLang : 'en');
 
     this.router.events.subscribe(val => {
       if (
@@ -53,10 +51,6 @@ export class HeaderComponent implements OnInit {
   rltAndLtr() {
     const dom: any = document.querySelector('body');
     dom.classList.toggle('rtl');
-  }
-
-  onLoggedout() {
-    localStorage.removeItem('isLoggedin');
   }
 
   changeLang(language: string) {
