@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { UserModel} from './../../shared/models';
+import { BookModel} from './../../shared/models';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +11,7 @@ import { UserModel} from './../../shared/models';
 export class HeaderComponent implements OnInit {
   pushRightClass: string = 'push-right';
   collapseClass:string = 'collapsed';
-  currentUser: UserModel;
+  currentUser: BookModel;
   isCollapsed = false;
 
   constructor( private translate: TranslateService, public router: Router) {
