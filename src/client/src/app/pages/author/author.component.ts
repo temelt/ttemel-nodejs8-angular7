@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthorService} from "../../shared/services";
-import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import {Observable} from "rxjs";
 import {Author} from "../../shared/models";
 
@@ -13,9 +12,9 @@ export class AuthorComponent implements OnInit {
 
   data = [];
   columns = [
-    {prop: 'id'},
-    {name: 'firstName'},
-    {name: 'lastName'}
+    {prop: 'No'},
+    {name: 'First Name'},
+    {name: 'Last Name'}
   ];
 
   constructor(private authorService: AuthorService) {

@@ -6,12 +6,12 @@ Boilerplate for Nodejs-Sequelize-Angular6
 - Express
 - PostgreSQL
 - Sequelize
-- Angular 6 with angular cli
+- Angular 7.2 with angular cli
 
 ### Pre-requisite ###
 
 Node.js - 8.9+
-Angular-CLI - 1.7.3+
+Angular-CLI - 7.2+
 
 ### Angular Server ###
 
