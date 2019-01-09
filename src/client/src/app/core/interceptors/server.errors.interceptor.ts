@@ -30,11 +30,7 @@ export class ServerErrorsInterceptor implements HttpInterceptor {
 
         if (err.status === 401) {
           // 401 unauthorised user, redirect the user to login page         
-          this.errorsService.log(err).subscribe(
-            (errorWithContext) => {
-              return this.router.navigate(['/error'], { queryParams: errorWithContext })
-            }
-          )
+          this.errorsService.log(err);
         }
       }
       return Observable.of(err);

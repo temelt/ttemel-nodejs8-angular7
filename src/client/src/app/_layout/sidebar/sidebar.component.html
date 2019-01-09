@@ -28,6 +28,19 @@
         </ul>
       </li>
 
+      <li [ngClass]="{'open': showMenu === 'book'}">
+        <a (click)="addExpandClass('book')" title="Book">
+          <span class="nav-icon material-icons">book</span> {{ 'Book' | translate }}
+          <span class="toogle-sub-nav material-icons">keyboard_arrow_right</span></a>
+        <ul class="sub-nav" [ngStyle]="{'display':(showMenu === 'book')?'block':'none'}">
+          <li>
+            <a routerLink="/books" routerLinkActive="active">
+              <i class="fa fa-file-o"></i><span> &nbsp;&nbsp;&nbsp;{{ 'Book List' | translate }}</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
     </ul>
 
   </nav>

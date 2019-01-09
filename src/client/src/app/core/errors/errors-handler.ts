@@ -25,20 +25,10 @@ export class ErrorsHandler implements ErrorHandler {
         // No Internet connection
         return notificationService.notifyError('No Internet Connection');
       }
-      // Http Error
-      // Send the error to the server
-      errorsService.log(error).subscribe();
-      // Show notification to the user
+      errorsService.log(error);
       return notificationService.notifyError(`${error.status} - ${error.message}`);
     } else {
-      // Client Error Happend
-      // Send the error to the server and then
-      // redirect the user to the page with all the info
-      errorsService
-          .log(error)
-          .subscribe(errorWithContextInfo => {
-            router.navigate(['/error'], { queryParams: errorWithContextInfo });
-          });
+      errorsService.log(error);
     }
   }
 }

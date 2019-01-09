@@ -12,6 +12,7 @@ const routes: Routes = [
       { path: '', pathMatch: 'full', redirectTo: 'dashboard' },      
       { path: 'dashboard', loadChildren: './pages/dashboard/dashboard.module#DashboardModule'},
       { path: 'authors', loadChildren: './pages/author/author.module#AuthorModule'},
+      { path: 'books', loadChildren: './pages/book/book.module#BookModule'},
     ]
   },
   { path: '**', component: ErrorsComponent, data: { error: 404 } },

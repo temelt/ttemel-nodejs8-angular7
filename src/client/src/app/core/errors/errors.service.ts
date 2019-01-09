@@ -23,30 +23,21 @@ export class ErrorsService {
       .events
       .subscribe((event: Event) => {
         if (event instanceof NavigationError) {
-          // Redirect to the ErrorComponent
-          //  this.router.navigate(['/error'])
-          this.log(event.error)
-            .subscribe((errorWithContext) => {
-              return self.router.navigate(['/error'], { queryParams: errorWithContext })
-
-            });
+          console.log(event.error);
         }
       });
   }
 
   log(error) {
-    // Log the error to the console
-    // Send error to server
     const errorToSend = this.addContextInfo(error);
-    // return Observable.of(errorToSend);
-    return fakeHttpService.post(errorToSend);
+    console.log(error);
   }
 
   addContextInfo(error) {
     // You can include context details here (usually coming from other services: UserService...)
     const name = error.name || null;
-    const appId = 'shthppnsApp';
-    const user = 'ShthppnsUser';
+    const appId = 'TestApp';
+    const user = 'TestUser';
     const time = new Date().getTime();
     const id = `${appId}-${user}-${time}`;
     const location = this.injector.get(LocationStrategy);
@@ -59,11 +50,4 @@ export class ErrorsService {
     return errorWithContext;
   }
 
-}
-
-class fakeHttpService {
-  static post(error): Observable<any> {
-    // console.log('Error sent to the server: ', error);
-    return Observable.of(error);
-  }
 }

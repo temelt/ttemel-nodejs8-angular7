@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 
 // Root App component
 import { AppComponent } from './app.component';
@@ -7,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
 
 import { DEFAULT_DECLARATION, DEFAULT_MODULES, DEFAULT_PROVIDERS } from "./app.module.constants"
+import {NgModule} from "@angular/core";
 
 @NgModule({
   declarations: [

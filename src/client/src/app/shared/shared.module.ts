@@ -1,17 +1,17 @@
-import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
-import { BsDropdownModule, PaginationModule, BsDatepickerModule, CollapseModule, ModalModule } from 'ngx-bootstrap';
-import { LoadingModule } from 'ngx-loading';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DIRECTIVE_DECLARATIONS, PageHeaderModule } from '.';
+import {NgModule} from "@angular/core";
+import {CommonModule} from "@angular/common";
+import {NgxLoadingModule} from "ngx-loading";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {BsDatepickerModule, BsDropdownModule, CollapseModule, ModalModule, PaginationModule} from "ngx-bootstrap";
 
 
 @NgModule({
   imports: [
     CommonModule,
     PageHeaderModule,
-    LoadingModule,
+    NgxLoadingModule,
     FormsModule,
     ReactiveFormsModule,
     CollapseModule.forRoot(),
@@ -30,7 +30,7 @@ import { DIRECTIVE_DECLARATIONS, PageHeaderModule } from '.';
   ],
     exports: [
     PageHeaderModule,
-    LoadingModule,
+    NgxLoadingModule,
     FormsModule,
     ReactiveFormsModule,
     PaginationModule,

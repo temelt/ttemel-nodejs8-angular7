@@ -1,5 +1,16 @@
 
 <app-page-header [heading]="'Author'" [icon]="'fa-desktop'"></app-page-header>
 <div class="content-wrapper">
-  Author
+
+    <h3>
+      <small>
+        Author List
+      </small>
+    </h3>
+
+    <ngx-datatable
+      [rows]="data"
+      [columns]="columns">
+    </ngx-datatable>
+
 </div>
