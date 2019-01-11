@@ -1,4 +1,4 @@
-# Node-Express-PostgreSQL-Angular6
+# Node-Express-PostgreSQL-Angular7
 Boilerplate for Nodejs-Sequelize-Angular6
 
 ### Features: ###
