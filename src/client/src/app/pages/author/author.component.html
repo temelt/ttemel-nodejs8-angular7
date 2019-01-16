@@ -1,10 +1,12 @@
 <app-page-header [heading]="'Author'" [icon]="'fa-desktop'"></app-page-header>
 <div class="content-wrapper">
-
-  <table>
-    <tr *ngFor="let item of data">
-      {{item.firstName}}
-    </tr>
-  </table>
-
+  <ngx-datatable
+    class="material striped"
+    [rows]="data"
+    [columns]="columns"
+    [columnMode]="'force'"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    [rowHeight]="50">
+  </ngx-datatable>
 </div>

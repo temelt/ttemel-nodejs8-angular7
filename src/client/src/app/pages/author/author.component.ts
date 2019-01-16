@@ -12,9 +12,9 @@ export class AuthorComponent implements OnInit {
 
   data = [];
   columns = [
-    {prop: 'No'},
-    {name: 'First Name'},
-    {name: 'Last Name'}
+    {prop: 'id', name: 'No'},
+    {prop: 'firstName', name: 'First Name'},
+    {prop: 'lastName', name: 'Last Name'}
   ];
 
   constructor(private authorService: AuthorService) {
