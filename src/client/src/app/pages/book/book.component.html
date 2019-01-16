@@ -1,5 +1,15 @@
 
 <app-page-header [heading]="'Book List'" [icon]="'fa-desktop'"></app-page-header>
 <div class="content-wrapper">
-  Book
+  <div>
+    <ngx-datatable
+      class="material striped"
+      [rows]="data"
+      [columns]="columns"
+      [columnMode]="'force'"
+      [headerHeight]="50"
+      [footerHeight]="50"
+      [rowHeight]="50">
+    </ngx-datatable>
+  </div>
 </div>

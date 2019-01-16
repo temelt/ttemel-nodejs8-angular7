@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {BookService} from "../../shared/services";
+import {AuthorService, BookService} from "../../shared/services";
 
 @Component({
   selector: 'app-book',
@@ -12,8 +12,19 @@ export class BookComponent implements OnInit {
 
   }
 
+  data = [];
+  columns = [
+    {prop: 'id', name: 'No'},
+    {prop: 'name', name: 'Book Name'},
+    {prop: 'isbn', name: 'ISBN'},
+    {prop: 'publishDate', name: 'Publish Date'}
+  ];
+
   ngOnInit() {
-
-  } 
-
+    this.bookService.getAll().subscribe(
+      (resp) => {
+        this.data = resp;
+      }
+    );
+  }
 }

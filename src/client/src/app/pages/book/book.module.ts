@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { BookRoutingModule } from './book-routing.module';
 import { BookComponent } from './book.component';
 import { SharedModule } from '../../shared/shared.module';
+import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 
 @NgModule({
   imports: [
     CommonModule,
     BookRoutingModule,
-    SharedModule
+    SharedModule,
+    NgxDatatableModule
   ],
   declarations: [BookComponent]
 })
