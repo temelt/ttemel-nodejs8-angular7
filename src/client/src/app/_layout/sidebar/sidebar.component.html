@@ -17,12 +17,12 @@
 
       <li [ngClass]="{'open': showMenu === 'author'}">
         <a (click)="addExpandClass('author')" title="Author">
-          <span class="nav-icon material-icons">author</span> {{ 'Author' | translate }}
+          <span class="nav-icon material-icons">supervisor_account</span> {{ 'Author' | translate }}
           <span class="toogle-sub-nav material-icons">keyboard_arrow_right</span></a>
         <ul class="sub-nav" [ngStyle]="{'display':(showMenu === 'author')?'block':'none'}">
           <li>
             <a routerLink="/authors"routerLinkActive="active">
-              <i class="fa fa-file-o"></i><span> &nbsp;&nbsp;&nbsp;{{ 'Author List' | translate }}</span>
+              <span><span class="nav-icon material-icons">list</span> &nbsp;&nbsp;&nbsp;{{ 'Author List' | translate }}</span>
             </a>
           </li>
         </ul>
@@ -35,7 +35,7 @@
         <ul class="sub-nav" [ngStyle]="{'display':(showMenu === 'book')?'block':'none'}">
           <li>
             <a routerLink="/books" routerLinkActive="active">
-              <i class="fa fa-file-o"></i><span> &nbsp;&nbsp;&nbsp;{{ 'Book List' | translate }}</span>
+              <span> <span class="nav-icon material-icons">list</span> &nbsp;&nbsp;&nbsp;{{ 'Book List' | translate }}</span>
             </a>
           </li>
         </ul>
