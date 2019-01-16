@@ -1,5 +1,10 @@
 <app-page-header [heading]="'Author'" [icon]="'fa-desktop'"></app-page-header>
 <div class="content-wrapper">
 
+  <table>
+    <tr *ngFor="let item of data">
+      {{item.firstName}}
+    </tr>
+  </table>
 
 </div>

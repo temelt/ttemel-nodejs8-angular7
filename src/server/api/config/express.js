@@ -14,6 +14,12 @@ const log = logger.appLogger(1);
 
 const app = express();
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 app.use(helmet());
 
 app.use(compression({ level: 9 }));
@@ -25,11 +31,6 @@ app.use(bodyParser.json());
 app.use(expressValidator());
 app.use('/', indexRouter);
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
 
 app.all(`/api/` + "*", function (req, res, next) {
     return next();
