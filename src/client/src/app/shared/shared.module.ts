@@ -1,10 +1,17 @@
-import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
-import { DIRECTIVE_DECLARATIONS, PageHeaderModule } from '.';
+import {ConfirmModalComponent} from './components/confirm-modal/confirm-modal.component';
+import {DIRECTIVE_DECLARATIONS, PageHeaderModule} from '.';
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {NgxLoadingModule} from "ngx-loading";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {BsDatepickerModule, BsDropdownModule, CollapseModule, ModalModule, PaginationModule} from "ngx-bootstrap";
+import {
+  BsDatepickerModule,
+  BsDropdownModule,
+  BsModalRef,
+  CollapseModule,
+  ModalModule,
+  PaginationModule
+} from "ngx-bootstrap";
 
 
 @NgModule({
@@ -20,15 +27,15 @@ import {BsDatepickerModule, BsDropdownModule, CollapseModule, ModalModule, Pagin
     PaginationModule.forRoot(),
     BsDatepickerModule.forRoot(),
   ],
-  providers: [],
-   declarations: [
-     ...DIRECTIVE_DECLARATIONS,    
+  providers: [BsModalRef],
+  declarations: [
+    ...DIRECTIVE_DECLARATIONS,
     ConfirmModalComponent,
   ],
-  entryComponents:[
+  entryComponents: [
     ConfirmModalComponent
   ],
-    exports: [
+  exports: [
     PageHeaderModule,
     NgxLoadingModule,
     FormsModule,
@@ -36,7 +43,8 @@ import {BsDatepickerModule, BsDropdownModule, CollapseModule, ModalModule, Pagin
     PaginationModule,
     BsDropdownModule,
     BsDatepickerModule,
-    ConfirmModalComponent
+    ConfirmModalComponent,
   ]
 })
-export class SharedModule {}
+export class SharedModule {
+}

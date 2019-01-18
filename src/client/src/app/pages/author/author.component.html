@@ -10,5 +10,32 @@
       [footerHeight]="50"
       [rowHeight]="50">
     </ngx-datatable>
+
+    <button type="button" color="primary" class="relative waves-light" (click)="openModal(authorModal)">New Author
+    </button>
   </div>
+
+  <ng-template #authorModal>
+    <div class="modal-header">
+      <h4 class="modal-title w-100">Modal title</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="authorModal.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+      <label for="author-firstname">Firstname</label>
+      <input class="form-control" id="author-firstname" name="author-firstname" [(ngModel)]="author.firstName"/>
+
+      <label for="author-lastname">Lastname</label>
+      <input class="form-control" id="author-lastname" name="author-lastname" [(ngModel)]="author.lastName"/>
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn-default" aria-label="Close" (click)="authorModal.hide()">Close</button>
+      <button type="button" class="btn-primary" (click)="saveAuthor()">Save</button>
+    </div>
+  </ng-template>
+
 </div>
+

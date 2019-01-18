@@ -24,8 +24,8 @@ module.exports = {
   },
 
   add(req, res) {
-    return Author
-      .create({
+      console.log(req.body.firstName);
+    return Author.create({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
       })

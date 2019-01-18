@@ -34,8 +34,15 @@ export class AuthorService {
     }));
   }
 
-  create(): Observable<any> {
-    return this.apiService.post(this.AUTHOR_PATH)
+  create(author): Observable<any> {
+    return this.apiService.post(this.AUTHOR_PATH, author).pipe(map(response => {
+      if (response) {
+        return response;
+      } else {
+        this.notificationService.notifyError(response ? response : 'Failed to Create Author');
+        return {};
+      }
+    }));
   }
 
   delete(): Observable<any> {

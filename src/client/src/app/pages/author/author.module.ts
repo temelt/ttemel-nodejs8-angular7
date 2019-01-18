@@ -11,7 +11,7 @@ import {NgxDatatableModule} from "@swimlane/ngx-datatable";
     CommonModule,
     AuthorRoutingModule,
     SharedModule,
-    NgxDatatableModule
+    NgxDatatableModule,
   ],
   declarations: [AuthorComponent]
 })

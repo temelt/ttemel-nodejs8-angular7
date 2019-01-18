@@ -1,7 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import {AuthorService} from "../../shared/services";
-import {Observable} from "rxjs";
-import {Author} from "../../shared/models";
+import {BsModalRef, BsModalService} from "ngx-bootstrap";
 
 @Component({
   selector: 'app-author',
@@ -10,6 +9,13 @@ import {Author} from "../../shared/models";
 })
 export class AuthorComponent implements OnInit {
 
+  authorModal: BsModalRef;
+
+  author = {
+    firstName: "",
+    lastName: ""
+  };
+
   data = [];
   columns = [
     {prop: 'id', name: 'No'},
@@ -17,7 +23,7 @@ export class AuthorComponent implements OnInit {
     {prop: 'lastName', name: 'Last Name'}
   ];
 
-  constructor(private authorService: AuthorService) {
+  constructor(private authorService: AuthorService, private modalService: BsModalService) {
 
   }
 
@@ -27,6 +33,23 @@ export class AuthorComponent implements OnInit {
         this.data = resp;
       }
     );
+  }
+
+  saveAuthor() {
+
+    this.authorService.create(this.author).subscribe(
+      (resp) => console.log(resp)
+    );
+    console.log("save author-" + this.author.firstName)
+    this.author = {
+      firstName: "",
+      lastName: ""
+    };
+    this.authorModal.hide();
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.authorModal = this.modalService.show(template);
   }
 
 }
