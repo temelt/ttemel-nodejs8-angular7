@@ -1,12 +1,18 @@
 {
-    "Dashboard": "Dashboard",
-    "Book": "Book",
-    "Author": "Author",
-    "Menu": "Menu",
-    "Search": "Search",
-    "Settings": "Settings",
-    "Profile": "Profile",
-    "Log Out": "Log Out",
-    "Mail": "Mail",
-    "View All": "View All"
+  "Dashboard": "Dashboard",
+  "Book": "Book",
+  "Author": "Author",
+  "Menu": "Menu",
+  "Search": "Search",
+  "Settings": "Settings",
+  "Profile": "Profile",
+  "Log Out": "Log Out",
+  "Mail": "Mail",
+  "View All": "View All",
+  "New Author": "New Author",
+  "Author List": "Author List",
+  "Fastname": "Firstname",
+  "Lastname": "Lastname",
+  "Save": "Save",
+  "Close": "Close"
 }

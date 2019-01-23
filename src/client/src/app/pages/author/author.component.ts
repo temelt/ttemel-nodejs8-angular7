@@ -28,6 +28,28 @@ export class AuthorComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.refreshData();
+  }
+
+  saveAuthor() {
+
+    this.authorService.create(this.author).subscribe(
+      (resp) => this.refreshData()
+    );
+    this.initAuthor();
+    this.authorModal.hide();
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.authorModal = this.modalService.show(template);
+  }
+
+  closeAndResetModal(){
+    this.authorModal.hide();
+    this.initAuthor();
+  }
+
+  refreshData(){
     this.authorService.getAll().subscribe(
       (resp) => {
         this.data = resp;
@@ -35,21 +57,11 @@ export class AuthorComponent implements OnInit {
     );
   }
 
-  saveAuthor() {
-
-    this.authorService.create(this.author).subscribe(
-      (resp) => console.log(resp)
-    );
-    console.log("save author-" + this.author.firstName)
+  initAuthor(){
     this.author = {
       firstName: "",
       lastName: ""
     };
-    this.authorModal.hide();
-  }
-
-  openModal(template: TemplateRef<any>) {
-    this.authorModal = this.modalService.show(template);
   }
 
 }
