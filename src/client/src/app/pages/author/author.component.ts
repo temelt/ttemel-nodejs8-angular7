@@ -1,6 +1,7 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
 import {AuthorService} from "../../shared/services";
 import {BsModalRef, BsModalService} from "ngx-bootstrap";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-author',
@@ -10,11 +11,8 @@ import {BsModalRef, BsModalService} from "ngx-bootstrap";
 export class AuthorComponent implements OnInit {
 
   authorModal: BsModalRef;
+  form: FormGroup;
 
-  author = {
-    firstName: "",
-    lastName: ""
-  };
 
   data = [];
   columns = [
@@ -23,21 +21,28 @@ export class AuthorComponent implements OnInit {
     {prop: 'lastName', name: 'Last Name'}
   ];
 
-  constructor(private authorService: AuthorService, private modalService: BsModalService) {
+  constructor(private authorService: AuthorService, private modalService: BsModalService,private formBuilder: FormBuilder) {
 
   }
 
   ngOnInit() {
+    this.form = this.formBuilder.group({
+      firstName : [null, [Validators.required]],
+      lastName : [null, Validators.required],
+    });
+
     this.refreshData();
   }
 
   saveAuthor() {
-
-    this.authorService.create(this.author).subscribe(
+    if (this.form.invalid) {
+      return;
+    }
+    this.authorService.create(this.form.value).subscribe(
       (resp) => this.refreshData()
     );
-    this.initAuthor();
     this.authorModal.hide();
+    this.form.reset();
   }
 
   openModal(template: TemplateRef<any>) {
@@ -46,7 +51,7 @@ export class AuthorComponent implements OnInit {
 
   closeAndResetModal(){
     this.authorModal.hide();
-    this.initAuthor();
+    this.form.reset();
   }
 
   refreshData(){
@@ -57,11 +62,6 @@ export class AuthorComponent implements OnInit {
     );
   }
 
-  initAuthor(){
-    this.author = {
-      firstName: "",
-      lastName: ""
-    };
-  }
+  get f() { return this.form.controls; }
 
 }
