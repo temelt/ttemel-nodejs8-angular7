@@ -1,6 +1,9 @@
-
 <app-page-header [heading]="'Book List'" [icon]="'fa-desktop'"></app-page-header>
 <div class="content-wrapper">
+  <div class="pull-right">
+    <button type="button" class="btn btn-primary" (click)="openModal(bookModal)">{{ 'New Book' | translate }}</button>
+  </div>
+
   <div>
     <ngx-datatable
       class="material striped"
@@ -12,4 +15,47 @@
       [rowHeight]="50">
     </ngx-datatable>
   </div>
+
+  <ng-template #bookModal >
+    <div class="modal-header">
+      <h4 class="modal-title w-100">{{ 'Book Detail' | translate }}</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="closeAndResetModal()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+      <form [formGroup]="form" (ngSubmit)="saveBook()">
+
+        <div class="form-group">
+          <label>Book Name</label>
+          <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': f.name.errors }" />
+          <div *ngIf="f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">Book Name is required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>ISBN</label>
+          <input type="text" formControlName="isbn" class="form-control" [ngClass]="{ 'is-invalid': f.isbn.errors }" />
+          <div *ngIf="f.isbn.errors" class="invalid-feedback">
+            <div *ngIf="f.isbn.errors.required">ISBN is required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Publish Date</label>
+          <input type="date" formControlName="publishDate" class="form-control" [pattern]="dd/MM/yyyy" [ngClass]="{ 'is-invalid': f.publishDate.errors }" />
+          <div *ngIf="f.publishDate.errors" class="invalid-feedback">
+            <div *ngIf="f.publishDate.errors.required">Publish Date is required</div>
+          </div>
+        </div>
+
+        <div class="modal-footer" >
+          <button class="btn btn-light" (click)="closeAndResetModal()">{{ 'Close' | translate }}</button>
+          <button class="btn btn-primary" >{{ 'Save' | translate }}</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
 </div>

@@ -37,8 +37,15 @@ export class BookService {
     }));
   }
 
-  create(): Observable<any> {
-    return this.apiService.post(this.BOOK_PATH)
+  create(book): Observable<any> {
+    return this.apiService.post(this.BOOK_PATH, book).pipe(map(response => {
+      if (response) {
+        return response;
+      } else {
+        this.notificationService.notifyError(response ? response : 'Failed to Create Book');
+        return {};
+      }
+    }));
   }
 
   delete(): Observable<any> {
