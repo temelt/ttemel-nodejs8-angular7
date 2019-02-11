@@ -1,12 +1,18 @@
 <app-page-header [heading]="'Book List'" [icon]="'fa-desktop'"></app-page-header>
 <div class="content-wrapper">
-  <div class="pull-right">
-    <button type="button" class="btn btn-primary" (click)="openModal(bookModal)">{{ 'New Book' | translate }}</button>
+  <div class="row">
+    <div class="col-lg-6 col-md-6"></div>
+    <div class="col-lg-6 col-md-6">
+      <div class="pull-right">
+        <button type="button" class="btn-sm btn-primary" (click)="openModal(bookModal)">{{ 'New Book' | translate }}
+        </button>
+      </div>
+    </div>
   </div>
 
   <div>
     <ngx-datatable
-      class="material striped"
+      class="bootstrap"
       [rows]="data"
       [columns]="columns"
       [columnMode]="'force'"
@@ -14,6 +20,10 @@
       [footerHeight]="50"
       [rowHeight]="50">
     </ngx-datatable>
+
+    <ng-template #colActionTemplate let-row="row" let-value="value">
+      <button (click)="deleteBook(value)"><i class="material-icons">delete</i></button>
+    </ng-template>
   </div>
 
   <ng-template #bookModal >

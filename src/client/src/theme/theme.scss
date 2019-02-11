@@ -12,8 +12,10 @@
 // Color system
 //
 @import "~bootstrap/scss/bootstrap";
-@import "responsive";
 @import "~material-design-icons-iconfont/dist/material-design-icons.css";
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/bootstrap.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
 // @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900');
 
 body {
