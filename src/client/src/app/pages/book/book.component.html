@@ -22,7 +22,7 @@
     </ngx-datatable>
 
     <ng-template #colActionTemplate let-row="row" let-value="value">
-      <button (click)="deleteBook(value)"><i class="material-icons">delete</i></button>
+      <button (click)="showConfirmationModal(value)"><i class="material-icons">delete</i></button>
     </ng-template>
   </div>
 

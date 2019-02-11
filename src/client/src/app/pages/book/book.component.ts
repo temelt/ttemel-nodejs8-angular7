@@ -2,6 +2,7 @@ import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {BookService} from "../../shared/services";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {BsModalRef, BsModalService} from "ngx-bootstrap";
+import {ConfirmModalComponent} from "../../shared/components";
 
 @Component({
   selector: 'app-book',
@@ -11,7 +12,6 @@ import {BsModalRef, BsModalService} from "ngx-bootstrap";
 export class BookComponent implements OnInit {
 
   @ViewChild('colActionTemplate') colActionTemplate: TemplateRef<any>;
-
   bookModal: BsModalRef;
   form: FormGroup;
 
@@ -60,8 +60,20 @@ export class BookComponent implements OnInit {
     this.form.reset();
   }
 
-  deleteBook(value) {
-    console.log(value);
+  showConfirmationModal(value): void {
+    const modal = this.modalService.show(ConfirmModalComponent);
+    (<ConfirmModalComponent>modal.content).showConfirmationModal(
+      'Delete Confirmation',
+      'Do you want to delete book?'
+    );
+
+    (<ConfirmModalComponent>modal.content).onClose.subscribe(result => {
+      if (result === true) {
+        console.log(value);
+      } else if (result === false) {
+        console.log(value);
+      }
+    });
   }
 
   refreshData() {
