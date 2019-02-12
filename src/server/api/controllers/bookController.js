@@ -4,7 +4,11 @@ const Author = require('../model').Author;
 module.exports = {
   list(req, res) {
     return Book
-      .findAll()
+      .findAll({
+          include: [{
+              all: true
+          }]
+      })
       .then((books) => res.status(200).send(books))
       .catch((error) => { res.status(400).send(error); });
   },
@@ -29,7 +33,7 @@ module.exports = {
         name: req.body.name,
         isbn: req.body.isbn,
         publishDate:req.body.publishDate,
-        author_id:req.body.authorId
+        author_id:req.body.author_id
       })
       .then((book) => res.status(201).send(book))
       .catch((error) => res.status(400).send(error));

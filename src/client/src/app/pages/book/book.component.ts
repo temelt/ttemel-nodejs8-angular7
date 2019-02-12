@@ -21,6 +21,10 @@ export class BookComponent implements OnInit {
 
   data = [];
   columns = [];
+  managers = [
+    {id: 1, nameSurname: 'Ahmet TEST'},
+    {id: 2, nameSurname: 'Mehmet TEST'}
+    ];
 
   ngOnInit() {
     this.columns = [
@@ -28,6 +32,8 @@ export class BookComponent implements OnInit {
       {prop: 'name', name: 'Book Name'},
       {prop: 'isbn', name: 'ISBN'},
       {prop: 'publishDate', name: 'Publish Date'},
+      {prop: 'author.firstName', name: 'Author Name'},
+      {prop: 'author.lastName', name: 'Author Surname'},
       {name: 'Actions', prop: 'id', cellTemplate: this.colActionTemplate, flexGrow: 1, sortable: false}
     ];
 
@@ -35,6 +41,7 @@ export class BookComponent implements OnInit {
       name: [null, [Validators.required]],
       isbn: [null, Validators.required],
       publishDate: [null, Validators.required],
+      author_id: [null, Validators.required],
     });
 
     this.refreshData();
