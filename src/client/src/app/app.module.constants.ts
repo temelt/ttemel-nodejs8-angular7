@@ -22,6 +22,7 @@ import {PaginationModule} from 'ngx-bootstrap';
 import {ToastrModule, ToastNoAnimation, ToastNoAnimationModule} from 'ngx-toastr';
 import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import {AuthorService, BookService} from "./shared/services";
+import {NotfoundComponent} from "./pages/notfound/notfound.component";
 
 export const createTranslateLoader = (http: HttpClient) => {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -34,6 +35,7 @@ export const DEFAULT_DECLARATION = [
   FooterComponent,
   SidebarComponent,
   BareLayoutComponent,
+  NotfoundComponent,
   AppLayoutComponent
 ];
 
