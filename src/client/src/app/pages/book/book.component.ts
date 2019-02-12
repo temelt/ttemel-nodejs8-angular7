@@ -1,5 +1,5 @@
 import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {BookService} from "../../shared/services";
+import {AuthorService, BookService} from "../../shared/services";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {BsModalRef, BsModalService} from "ngx-bootstrap";
 import {ConfirmModalComponent} from "../../shared/components";
@@ -15,16 +15,16 @@ export class BookComponent implements OnInit {
   bookModal: BsModalRef;
   form: FormGroup;
 
-  constructor(private bookService: BookService, private modalService: BsModalService, private formBuilder: FormBuilder) {
+  constructor(private bookService: BookService,
+              private modalService: BsModalService,
+              private authorService: AuthorService,
+              private formBuilder: FormBuilder) {
 
   }
 
   data = [];
   columns = [];
-  managers = [
-    {id: 1, nameSurname: 'Ahmet TEST'},
-    {id: 2, nameSurname: 'Mehmet TEST'}
-    ];
+  authors = [];
 
   ngOnInit() {
     this.columns = [
@@ -43,6 +43,11 @@ export class BookComponent implements OnInit {
       publishDate: [null, Validators.required],
       author_id: [null, Validators.required],
     });
+
+    this.authorService.getAll().subscribe(res => {
+        this.authors = res;
+      }
+    )
 
     this.refreshData();
   }

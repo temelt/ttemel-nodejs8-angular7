@@ -63,10 +63,9 @@
 
         <div class="form-group">
           <label>Project Manager</label>
-
           <select id="emp" class="form-control" formControlName="author_id" [ngClass]="{ 'is-invalid': f.author_id.errors }"  >
-              <option *ngFor="let val of managers" [value]="val.id">
-                {{val.nameSurname}}
+              <option *ngFor="let val of authors" [value]="val.id">
+                {{val.firstName}} {{val.lastName}}
               </option>
           </select>
           <div *ngIf="f.author_id.errors" class="invalid-feedback">

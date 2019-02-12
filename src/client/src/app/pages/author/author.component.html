@@ -1,11 +1,11 @@
 <app-page-header [heading]="'Author List'" [icon]="'fa-desktop'"></app-page-header>
 <div class="content-wrapper">
   <div class="pull-right">
-    <button type="button" class="btn btn-primary" (click)="openModal(authorModal)">{{ 'New Author' | translate }}</button>
+    <button type="button" class="btn-sm btn-primary" (click)="openModal(authorModal)">{{ 'New Author' | translate }}</button>
   </div>
   <div >
     <ngx-datatable
-      class="material striped"
+      class="bootstrap"
       [rows]="data"
       [columns]="columns"
       [columnMode]="'force'"
