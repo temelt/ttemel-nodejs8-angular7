@@ -12,15 +12,24 @@ export class BookDetailComponent implements OnInit {
 
   id: number;
   private sub: any;
+  data=[];
+  columns=[];
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.id = +params['id']; // (+) converts string 'id' to a number
-
-      // In a real app: dispatch action to load the details here.
+      this.id = +params['id'];
     });
+
+    this.columns = [
+      {prop: 'id', name: 'No'},
+      {prop: 'issue.id', name: 'Issue No'},
+      {prop: 'description', name: 'Description'},
+      {prop: 'date', name: 'Issue Date'},
+      {prop: 'issueStatus', name: 'Status'},
+      {prop: 'assignee.nameSurname', name: 'Assignee'}
+    ];
   }
 
 }
