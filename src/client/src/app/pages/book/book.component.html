@@ -23,6 +23,7 @@
 
     <ng-template #colActionTemplate let-row="row" let-value="value">
       <button (click)="showConfirmationModal(value)"><i class="material-icons">delete</i></button>
+      <a [routerLink]="['book-detail/',value]">Detail</a>
     </ng-template>
   </div>
 

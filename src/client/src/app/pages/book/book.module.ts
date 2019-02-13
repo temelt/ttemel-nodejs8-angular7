@@ -8,6 +8,7 @@ import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {createTranslateLoader} from "../../app.module.constants";
 import {HttpClient} from "@angular/common/http";
+import { BookDetailComponent } from './book-detail/book-detail.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,6 @@ import {HttpClient} from "@angular/common/http";
       }
     }),
   ],
-  declarations: [BookComponent]
+  declarations: [BookComponent, BookDetailComponent]
 })
 export class BookModule { }
