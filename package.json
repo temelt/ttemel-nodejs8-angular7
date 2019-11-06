@@ -36,7 +36,7 @@
     "pg-hstore": "^2.3.2",
     "randomstring": "^1.1.5",
     "request": "^2.87.0",
-    "sequelize": "^4.37.10",
+    "sequelize": "^5.15.1",
     "uniqid": "^5.0.2"
   },
   "engines": {
