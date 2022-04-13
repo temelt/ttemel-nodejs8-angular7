@@ -9,7 +9,7 @@
   "author": "Taner TEMEL",
   "license": "MIT",
   "dependencies": {
-    "async": "^2.6.1",
+    "async": "^3.2.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "bunyan": "^1.8.12",
